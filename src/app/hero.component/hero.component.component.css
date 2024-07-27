@@ -1,0 +1,8 @@
+:host{
+display: flex;
+}
+
+.bottomless-class {
+  display: flex;
+  flex-direction: column;
+}

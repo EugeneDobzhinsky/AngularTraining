@@ -1,0 +1,33 @@
+<div class="hero-card">
+  <span class="name">{{ hero.name }}</span>
+  <br>
+  <label>Inventory</label>
+  <div class="inventory">
+    <ng-container *ngFor="let item of hero.inventory; index as index">
+      <span class="name">{{ item.name }}</span>
+      /
+      <span class="quantity">{{ item.quantity }}</span>
+      <button class="btn-minus" [disabled]="item.quantity < 1" (click)="decrementItemQuantity(item)">-</button>
+      <button class="arrow" (click)="moveItemToTheBox(index, hero.inventory)">-></button>
+      <br>
+    </ng-container>
+    <br>
+    <label>Equipment</label>
+    <div class="equipment">
+      <ng-container *ngFor="let item of hero.equipments; index as index">
+        <span class="equipment-name">{{ item.name }}</span>
+        <button class="arrow" (click)="moveItemToTheBox(index, hero.equipments)">-></button>
+        <br>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+  <div class="bottomless-class">
+    <label>Bottomless box</label>
+    <br>
+    <span class="box-item" *ngFor="let item of hero.bottomlessBox; index as index">{{ item.name }}
+      / {{ item.quantity }}
+      <button class="arrow" (click)="moveItemToTheInventoryOrEquipment(index)"><-</button><br></span>
+  </div>
+

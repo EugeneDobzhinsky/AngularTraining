@@ -1,0 +1,27 @@
+.all-inventory{
+  margin-top: 20px;
+}
+
+.bottomless-class{
+  margin-left: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.add-inventory-item, .add-equipment-item {
+  border: 1px solid black;
+}
+
+button {
+  margin-left: 5px;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+  min-width: 275px;
+}
