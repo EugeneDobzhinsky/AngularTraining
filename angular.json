@@ -5,7 +5,19 @@
   "projects": {
     "angularTraining": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "prefix": "app",
+          "style": "scss",
+          "inlineStyle": false,
+          "displayBlock": true,
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "prefix": "app",
+          "skipTests": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",

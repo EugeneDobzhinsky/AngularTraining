@@ -3,20 +3,29 @@
     <button (click)="cloneHero()">Clone</button>
     <app-hero [hero]="firstHero"></app-hero>
   </div>
-    <div class="column" *ngFor="let item of clonedHero; index as index">
-      <app-hero [hero]="item"></app-hero>
-    </div>
+  <div class="column" *ngFor="let item of clonedHero; index as index">
+    <app-hero [hero]="item"></app-hero>
+  </div>
 </div>
 
-
-<div class="all-inventory">
-  <ng-container *ngFor="let item of darkSoulsInventoryItems">
-    <span class="name">{{ item.name }}</span>
-    /
-    <span class="quantity">{{ item.quantity }}</span>
-    <button class="add-item" [disabled]="item.quantity < 1" (click)="addItemToInventory(item)">+</button>
-    <br>
-  </ng-container>
+<div class="row">
+  <div class="column">
+    <div class="all-inventory">
+      <ng-container *ngFor="let item of darkSoulsInventoryItems">
+        <span class="name">{{ item.name }}</span>
+        /
+        <span class="quantity">{{ item.quantity }}</span>
+        <button class="add-item" [disabled]="item.quantity < 1" (click)="addItemToInventory(item)">+</button>
+        <br>
+      </ng-container>
+    </div>
+  </div>
+    <div class="column">
+    <div class="magic">
+      <app-spell-card [magic]="item" *ngFor="let item of darkSoulsSpells">
+        </app-spell-card>
+      </div>
+    </div>
 </div>
 
 <div class="add-inventory-item">

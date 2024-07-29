@@ -1,15 +1,24 @@
 import {Component} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {createHeroes, Hero} from "./hero-functions";
-import {BottomlessBoxItem, darkSoulsInventoryItems, Equipment, equipments, Inventory, npcNames} from "./Constants";
+import {
+  BottomlessBoxItem,
+  darkSoulsInventoryItems, darkSoulsSpells,
+  Equipment,
+  equipments,
+  Inventory,
+  Magic,
+  npcNames
+} from "./Constants";
 import {JsonPipe, NgForOf, NgIf} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {HeroComponentComponent} from "./hero.component/hero.component.component";
+import {SpellCardComponent} from "./spell-card/spell-card.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgForOf, JsonPipe, FormsModule, NgIf, HeroComponentComponent],
+  imports: [RouterOutlet, NgForOf, JsonPipe, FormsModule, NgIf, HeroComponentComponent, SpellCardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -88,7 +97,9 @@ export class AppComponent {
   }
 
   protected readonly darkSoulsInventoryItems = darkSoulsInventoryItems;
+  protected readonly darkSoulsSpells = darkSoulsSpells;
   protected readonly equipments = equipments;
+
 }
 
 
