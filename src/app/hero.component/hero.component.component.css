@@ -6,3 +6,9 @@ display: flex;
   display: flex;
   flex-direction: column;
 }
+
+.spell-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}

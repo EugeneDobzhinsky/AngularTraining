@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Magic} from "../Constants";
 import {NgIf} from "@angular/common";
 
@@ -13,5 +13,5 @@ import {NgIf} from "@angular/common";
 })
 export class SpellCardComponent {
   @Input({required:true}) magic!: Magic;
-
+  @Output() returnSpell: EventEmitter<Magic> = new EventEmitter();
 }

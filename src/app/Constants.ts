@@ -13,6 +13,7 @@ export interface Equipment {
   quantity: number;
 }
 
+
 export interface Magic {
   name: string,
   type: "miracle" | "pyromancy" | "sorcery",

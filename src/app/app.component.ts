@@ -68,9 +68,19 @@ export class AppComponent {
     item.quantity -= 1
   }
 
+  public addSpellToAttunement(item: Magic) {
+    const newSpell = structuredClone(item)
+    let heroSpell = this.firstHero.attunement.find(heroSpell => heroSpell.name === newSpell.name)
+    if (heroSpell) {
+      alert("You already have this spell!")
+    } else {
+      this.firstHero.attunement.push(newSpell)
+    }
+  }
+
   public cloneHero() {
     let newClonedHero = Object.assign({}, this.firstHero);
-    newClonedHero.name = this.firstHero.name  +" MIMIK*" + (this.clonedHero.length + 1)
+    newClonedHero.name = this.firstHero.name + " MIMIK*" + (this.clonedHero.length + 1)
     newClonedHero.inventory = this.firstHero.inventory.map((inventory) => ({...inventory}))
     newClonedHero.equipments = this.firstHero.equipments.map((equipment) => ({...equipment}))
     newClonedHero.bottomlessBox = this.firstHero.bottomlessBox.map((boxItem) => ({...boxItem}));

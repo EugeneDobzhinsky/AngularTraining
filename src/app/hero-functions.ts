@@ -1,4 +1,12 @@
-import {BottomlessBox, darkSoulsClasses, darkSoulsInventoryItems, Equipment, equipments, Inventory} from "./Constants";
+import {
+  BottomlessBox,
+  darkSoulsClasses,
+  darkSoulsInventoryItems, darkSoulsSpells,
+  Equipment,
+  equipments,
+  Inventory,
+  Magic
+} from "./Constants";
 
 
 export interface Hero {
@@ -8,6 +16,7 @@ export interface Hero {
   class: string;
   introduce: Function
   equipments: Equipment[];
+  attunement: Magic[];
   bottomlessBox: BottomlessBox;
 }
 
@@ -27,6 +36,7 @@ export function expressYourself(npcNames: string[]) {
 export function buildHero(name: string, location: string):Hero {
   let originalItem = randomizer(darkSoulsInventoryItems)
   let clonedItem = {...originalItem}
+  let clonedSpell = {...randomizer(darkSoulsSpells)}
     return {
         name: name,
         location: location,
@@ -34,6 +44,7 @@ export function buildHero(name: string, location: string):Hero {
         class: randomizer(darkSoulsClasses),
         equipments: [randomizer(equipments), randomizer(equipments)],
         bottomlessBox: [],
+        attunement: [clonedSpell],
         introduce: function () {
             console.log(`Hello my name is ${this.name} and I'm from ${this.location}!`)
         }

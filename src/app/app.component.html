@@ -22,7 +22,7 @@
   </div>
     <div class="column">
     <div class="magic">
-      <app-spell-card [magic]="item" *ngFor="let item of darkSoulsSpells">
+      <app-spell-card [magic]="item" *ngFor="let item of darkSoulsSpells" (returnSpell)="addSpellToAttunement(item)">
         </app-spell-card>
       </div>
     </div>

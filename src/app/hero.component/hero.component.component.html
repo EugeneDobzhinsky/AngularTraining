@@ -1,5 +1,5 @@
 <div class="hero-card">
-  <span class="name">{{ hero.name }}</span>
+  <span class="name">{{ hero.name }}</span> / <button class="nap" (click)="chillAndRelax(hero.attunement[0])">Have a rest</button>
   <br>
   <label>Inventory</label>
   <div class="inventory">
@@ -20,14 +20,28 @@
         <br>
       </ng-container>
     </div>
+    <br>
+    <label>Attunement</label>
+    <div class="attunement">
+      <ng-container *ngFor="let item of hero.attunement; index as index">
+        <div><span class="attunement-name">{{ item.name }}</span> / <span class="attunement-type">{{ item.type }}</span>
+          / <span class="attunement-uses">{{ item.spell_uses }}</span>
+          <button class="cast-spell" title="cast" (click)="decrementSpellQuantity(item)" [disabled]="item.spell_uses <= 0">🪄</button>
+        </div>
+      </ng-container>
+    </div>
   </div>
 </div>
 
-  <div class="bottomless-class">
-    <label>Bottomless box</label>
-    <br>
-    <span class="box-item" *ngFor="let item of hero.bottomlessBox; index as index">{{ item.name }}
-      / {{ item.quantity }}
-      <button class="arrow" (click)="moveItemToTheInventoryOrEquipment(index)"><-</button><br></span>
-  </div>
+<div class="bottomless-class">
+  <label>Bottomless box</label>
+  <br>
+  <span class="box-item" *ngFor="let item of hero.bottomlessBox; index as index">{{ item.name }}
+    / {{ item.quantity }}
+    <button class="arrow" (click)="moveItemToTheInventoryOrEquipment(index)"><-</button><br></span>
+</div>
+
+<div class="spell-toast" *ngFor="let alert of alerts">
+  <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout">{{ alert.msg }}</alert>
+</div>
 

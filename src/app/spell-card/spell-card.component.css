@@ -1,0 +1,10 @@
+:host {
+  max-width: 300px;
+  display: block;
+}
+
+.stats-requirements {
+  display: flex;
+  align-items: center;
+}
+
