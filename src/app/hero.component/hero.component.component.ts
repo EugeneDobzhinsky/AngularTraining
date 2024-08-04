@@ -52,11 +52,13 @@ export class HeroComponentComponent {
     }
   }
 
-  public chillAndRelax(item: Magic) {
-    let findSpell = darkSoulsSpells.find((findSpell) => findSpell.name === item.name)
-    if(findSpell) {
-      item.spell_uses = findSpell.spell_uses
-    }
+  public chillAndRelax() {
+    this.hero.attunement.forEach((item) => {
+      let findSpell = darkSoulsSpells.find((findSpell) => findSpell.name === item.name)
+      if (findSpell) {
+        item.spell_uses = findSpell.spell_uses
+      }
+    })
   }
 
   public moveItemToTheInventoryOrEquipment(index: number) {

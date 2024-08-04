@@ -1,5 +1,7 @@
 <div class="hero-card">
-  <span class="name">{{ hero.name }}</span> / <button class="nap" (click)="chillAndRelax(hero.attunement[0])">Have a rest</button>
+  <span class="name">{{ hero.name }}</span> / <button class="nap" (click)="chillAndRelax()">Have a rest</button>
+  /
+  <button class="introduce" (click)="hero.introduce()">Say what again!</button>
   <br>
   <label>Inventory</label>
   <div class="inventory">
@@ -29,6 +31,7 @@
           <button class="cast-spell" title="cast" (click)="decrementSpellQuantity(item)" [disabled]="item.spell_uses <= 0">🪄</button>
         </div>
       </ng-container>
+      <div><span class="remaining-slots">remaining slots: {{hero.remainingSlots}}</span></div>
     </div>
   </div>
 </div>

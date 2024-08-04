@@ -18,6 +18,8 @@ export interface Hero {
   equipments: Equipment[];
   attunement: Magic[];
   bottomlessBox: BottomlessBox;
+  slots:number;
+  remainingSlots:number;
 }
 
 export function changeHeroLocation(hero: Hero, location: string) {
@@ -45,6 +47,13 @@ export function buildHero(name: string, location: string):Hero {
         equipments: [randomizer(equipments), randomizer(equipments)],
         bottomlessBox: [],
         attunement: [clonedSpell],
+        slots:4,
+        get remainingSlots(){
+          let result = this.attunement.reduce(function (slotsStart, slotsPlus) {
+          return slotsStart + slotsPlus.slots;
+        }, 0)
+          return this.slots - result;
+        },
         introduce: function () {
             console.log(`Hello my name is ${this.name} and I'm from ${this.location}!`)
         }

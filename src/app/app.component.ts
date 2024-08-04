@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {createHeroes, Hero} from "./hero-functions";
 import {
@@ -70,9 +70,15 @@ export class AppComponent {
 
   public addSpellToAttunement(item: Magic) {
     const newSpell = structuredClone(item)
+    let difference = this.firstHero.remainingSlots - newSpell.slots
     let heroSpell = this.firstHero.attunement.find(heroSpell => heroSpell.name === newSpell.name)
-    if (heroSpell) {
-      alert("You already have this spell!")
+    if (heroSpell || difference < 0) {
+      if (difference) {
+        alert("Not today man!")
+      }
+      if (heroSpell) {
+        alert("You already have this spell!")
+      }
     } else {
       this.firstHero.attunement.push(newSpell)
     }

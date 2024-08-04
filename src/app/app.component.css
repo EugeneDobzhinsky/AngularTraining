@@ -1,3 +1,8 @@
+app-spell-card {
+  min-width: 200px;
+  min-height: 150px;
+}
+
 .all-inventory{
   margin-top: 20px;
 }
@@ -24,4 +29,9 @@ button {
 .column {
   flex-direction: column;
   min-width: 275px;
+}
+
+.magic {
+  display: flex;
+  flex-wrap : wrap;
 }
